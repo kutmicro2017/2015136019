@@ -40,7 +40,7 @@ void loop() {
   digitalWrite(LED1_R, LOW);
   digitalWrite(LED1_G, HIGH);  //상하 신호등이 빨간색
   digitalWrite(LED2_R, HIGH); digitalWrite(LED3_R, HIGH); digitalWrite(LED4_R, HIGH); //좌우 신호등이 초록색
-  delay(20000); //1분간 대기
+  delay(5000); //1분간 대기
   digitalWrite(LED1_G, LOW);
   //신호를 끈다
   for (int delaytime = 0; delaytime < 10; delaytime++) {
@@ -50,7 +50,8 @@ void loop() {
     delay(500); // 0.5+0.5 해서 1초간 깜빡인다
   }
   digitalWrite(LED3_R, LOW);
-  digitalWrite(LED3_G, HIGH);  //상하 신호등이 빨간색
+
+  digitalWrite(LED3_G, HIGH);
   digitalWrite(LED1_R, HIGH); digitalWrite(LED2_R, HIGH); digitalWrite(LED4_R, HIGH); //좌우 신호등이 초록색
   unsigned long previousMillis = millis();
   while (millis() - previousMillis <= interval) { //현재 시각과 이전 시각의 차이가 60초가 될 때까지 반복
@@ -66,51 +67,47 @@ void loop() {
       }
       digitalWrite(LED3_R, HIGH);
       state = true; //동작이 끝났으니 변수를 원래 상태로 돌려줌
-      delay(20000);
+      delay(5000);
       digitalWrite(LED3_R, LOW);
       digitalWrite(LED3_G, HIGH);
       previousMillis = millis() - 33000; //빨간 신호를 켜서 딜레이 된 만큼 지연 시간을 늘려줌
     }
   }
-  digitalWrite(LED3_G, LOW);
+    digitalWrite(LED3_G, LOW);
+    for (int delaytime = 0; delaytime < 10; delaytime++) {
+      digitalWrite(LED3_Y, HIGH);  //노란 신호가 들어옴
+      delay(500);
+      digitalWrite(LED3_Y, LOW);
+      delay(500); // 0.5+0.5 해서 1초간 깜빡인다
+    }
+    digitalWrite(LED3_R, HIGH);
 
-  for (int delaytime = 0; delaytime < 10; delaytime++) {
-    digitalWrite(LED2_Y, HIGH);  //노란 신호가 들어옴
-    delay(500);
-    digitalWrite(LED2_Y, LOW);
-    delay(500); // 0.5+0.5 해서 1초간 깜빡인다
+
+    digitalWrite(LED2_R, LOW);//신호를 끈다
+    digitalWrite(LED2_G, HIGH);  //상하 신호등이 빨간색
+    digitalWrite(LED1_R, HIGH); digitalWrite(LED3_R, HIGH); digitalWrite(LED4_R, HIGH); //좌우 신호등이 초록색
+    delay(5000); //1분간 대기
+    digitalWrite(LED2_G, LOW);
+
+    for (int delaytime = 0; delaytime < 10; delaytime++) {
+      digitalWrite(LED2_Y, HIGH);  //노란 신호가 들어옴
+      delay(500);
+      digitalWrite(LED2_Y, LOW);
+      delay(500); // 0.5+0.5 해서 1초간 깜빡인다
+    }
+    digitalWrite(LED2_R, HIGH);
+
+    digitalWrite(LED4_R, LOW);//신호를 끈다
+    digitalWrite(LED4_G, HIGH);
+    digitalWrite(LED1_R, HIGH); digitalWrite(LED2_R, HIGH); digitalWrite(LED3_R, HIGH); //좌우 신호등이 초록색
+    delay(5000); //1분간 대기
+    digitalWrite(LED4_G, LOW);
+    //신호를 끈다
+    for (int delaytime = 0; delaytime < 10; delaytime++) {
+      digitalWrite(LED4_Y, HIGH);  //노란 신호가 들어옴
+      delay(500);
+      digitalWrite(LED4_Y, LOW);
+      delay(500); // 0.5+0.5 해서 1초간 깜빡인다
+    }
   }
-
-
-
-  digitalWrite(LED2_R, LOW);//신호를 끈다
-  digitalWrite(LED2_G, HIGH);  //상하 신호등이 빨간색
-  digitalWrite(LED1_R, HIGH); digitalWrite(LED3_R, HIGH); digitalWrite(LED4_R, HIGH); //좌우 신호등이 초록색
-  delay(20000); //1분간 대기
-  digitalWrite(LED2_G, LOW);
-  digitalWrite(LED4_R, LOW);//신호를 끈다
-  for (int delaytime = 0; delaytime < 10; delaytime++) {
-    digitalWrite(LED2_Y, HIGH);  //노란 신호가 들어옴
-    delay(500);
-    digitalWrite(LED2_Y, LOW);
-    delay(500); // 0.5+0.5 해서 1초간 깜빡인다
-  }
-
-
-  digitalWrite(LED4_R, LOW);//신호를 끈다
-  digitalWrite(LED4_G, HIGH);  //상하 신호등이 빨간색
-  digitalWrite(LED1_R, HIGH); digitalWrite(LED2_R, HIGH); digitalWrite(LED3_R, HIGH); //좌우 신호등이 초록색
-  delay(20000); //1분간 대기
-  digitalWrite(LED4_G, LOW);
-  //신호를 끈다
-  for (int delaytime = 0; delaytime < 10; delaytime++) {
-    digitalWrite(LED4_Y, HIGH);  //노란 신호가 들어옴
-    delay(500);
-    digitalWrite(LED4_Y, LOW);
-    delay(500); // 0.5+0.5 해서 1초간 깜빡인다
-  }
-
-
-
-
-}
+  
