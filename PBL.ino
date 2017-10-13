@@ -59,7 +59,7 @@ for(int count=0; count<1000;count++){
  if(state == false) { //스위치가 눌렸으면
     delay(PedestrianDelayTime); //3초간 대기
     digitalWrite(LED2_G, LOW); //초록불을 꺼준다
-    for(int delaytime=0; delaytime <10; delaytime++){ //10초간
+    for(int delaytime=0; delaytime <(YellowBlinkTime/1000); delaytime++){ //10초간
     digitalWrite(LED2_Y, HIGH); //노란 신호가 들어옴
     delay(500);
     digitalWrite(LED2_Y, LOW); //노란 신호를 끔
